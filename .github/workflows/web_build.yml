@@ -25,14 +25,7 @@ jobs:
     - name: Build Raylib for Web
       run: |
         cd raylib/src
-        emcc -c rcore.c -Os -DPLATFORM_WEB -DGRAPHICS_API_OPENGL_ES2
-        emcc -c rshapes.c -Os -DPLATFORM_WEB -DGRAPHICS_API_OPENGL_ES2
-        emcc -c rtextures.c -Os -DPLATFORM_WEB -DGRAPHICS_API_OPENGL_ES2
-        emcc -c rtext.c -Os -DPLATFORM_WEB -DGRAPHICS_API_OPENGL_ES2
-        emcc -c rmodels.c -Os -DPLATFORM_WEB -DGRAPHICS_API_OPENGL_ES2
-        emcc -c utils.c -Os -DPLATFORM_WEB
-        emcc -c raudio.c -Os -DPLATFORM_WEB
-        emar rcs libraylib.a rcore.o rshapes.o rtextures.o rtext.o rmodels.o utils.o raudio.o
+        make PLATFORM=PLATFORM_WEB -B
         mkdir -p ../../lib
         cp libraylib.a ../../lib/libraylib.a
         cp raylib.h ../../include/raylib.h
@@ -52,7 +45,7 @@ jobs:
         --preload-file assets \
         -DPLATFORM_WEB \
         -Os \
-        --shell-file raylib/src/minshell.html
+        --shell-file raylib/src/shell.html
 
     - name: Upload Web Artifact
       uses: actions/upload-artifact@v4
