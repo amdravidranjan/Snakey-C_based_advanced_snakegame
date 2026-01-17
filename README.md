@@ -1,6 +1,12 @@
 # SNAKEYYY - Advanced Snake Game
 
-A feature-rich, modular Snake game built with C and Raylib, designed to push the boundaries of the classic arcade experience with unique mechanics and multiple game modes.
+A feature-rich, modular Snake game **built entirely in C** using the Raylib framework. This project demonstrates the power of **pure C programming** to create a modern, polished arcade experience, highlighted by its **unique "Tactical Reverse" mechanic** that completely redefines the classic gameplay loop.
+
+
+<p align="center">
+  <img src="assets/demo.png" width="45%" />
+  <img src="assets/demo2.png" width="45%" />
+</p>
 
 ## 🌟 Unique Feature: Tactical Reverse
 Unlike traditional Snake games where reversing direction is a death sentence, **SNAKEYYY** introduces a strategic **Reverse Mechanic**.
@@ -38,17 +44,34 @@ The project has been refactored into a professional C project structure for bett
 **Prerequisites**: GCC (MinGW) and Raylib.
 
 ### Compile
-Run the following from the project root:
+Run the following command from the project root:
+
 ```bash
-gcc src/main.c src/globals.c src/utils.c src/resources.c src/storage.c src/entities.c src/ui.c src/game.c -Iinclude -o build/snake_game.exe -lraylib -lopengl32 -lgdi32 -lwinmm
+gcc src/main.c src/globals.c src/utils.c src/resources.c src/storage.c src/entities.c src/ui.c src/game.c -Iinclude -o snake_game.exe -lraylib -lopengl32 -lgdi32 -lwinmm
 ```
 
 ### Run
 ```bash
-./build/snake_game.exe
+./snake_game.exe
 ```
 
-## 👥 Authors
-*   **Dravid**
+## 🤝 Contributing
+Contributions are welcome! If you have ideas for new power-ups, game modes, or optimizations:
+1.  **Fork** the repository.
+2.  Create a new branch (`git checkout -b feature/NewFeature`).
+3.  Commit your changes (`git commit -m 'Add some NewFeature'`).
+4.  Push to the branch (`git push origin feature/NewFeature`).
+5.  Open a **Pull Request**.
+
+Suggestions for improvement:
+*   Add more maze patterns.
+*   Implement a network-based multiplayer mode.
+*   Optimize the rendering loop for even lower spec hardware.
+
+## 👥 Developers
+*   **Dravid Ranjan**
 *   **Guhanesh**
-*   **Gopi**
+*   **Gopinath**
+
+## 🏷️ Tags
+`c` `raylib` `snake-game` `arcade` `multiplayer` `game-development` `procedural-generation` `retro` `survival-mode` `maze-game` `open-source`
