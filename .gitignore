@@ -1,0 +1,20 @@
+# Build Artifacts
+build/
+*.exe
+*.o
+*.obj
+
+# User Data
+highscores.txt
+highscores.dat
+
+# Temporary / Backup Files
+README_REFACTOR.md
+*.bak
+
+# Documentation (Masking PDF as requested, un-comment to allow)
+# *.pdf
+
+# OS Files
+Thumbs.db
+Desktop.ini
