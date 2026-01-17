@@ -1,0 +1,61 @@
+name: Build Web Version
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build-web:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup Emscripten
+      uses: mymindstorm/setup-emsdk@v14
+
+    - name: Checkout Raylib
+      uses: actions/checkout@v4
+      with:
+        repository: raysan5/raylib
+        path: raylib
+
+    - name: Build Raylib for Web
+      run: |
+        cd raylib/src
+        emcc -c rcore.c -Os -DPLATFORM_WEB -DGRAPHICS_API_OPENGL_ES2
+        emcc -c rshapes.c -Os -DPLATFORM_WEB -DGRAPHICS_API_OPENGL_ES2
+        emcc -c rtextures.c -Os -DPLATFORM_WEB -DGRAPHICS_API_OPENGL_ES2
+        emcc -c rtext.c -Os -DPLATFORM_WEB -DGRAPHICS_API_OPENGL_ES2
+        emcc -c rmodels.c -Os -DPLATFORM_WEB -DGRAPHICS_API_OPENGL_ES2
+        emcc -c utils.c -Os -DPLATFORM_WEB
+        emcc -c raudio.c -Os -DPLATFORM_WEB
+        emar rcs libraylib.a rcore.o rshapes.o rtextures.o rtext.o rmodels.o utils.o raudio.o
+        mkdir -p ../../lib
+        cp libraylib.a ../../lib/libraylib.a
+        cp raylib.h ../../include/raylib.h
+
+    - name: Build Game (WebAssembly)
+      run: |
+        # Create output directory
+        mkdir build_web
+        
+        # Compile game
+        emcc src/main.c src/globals.c src/utils.c src/resources.c src/storage.c src/entities.c src/ui.c src/game.c \
+        -o build_web/index.html \
+        -Iinclude -Iraylib/src \
+        -Llib -lraylib \
+        -s USE_GLFW=3 -s ASYNCIFY -s TOTAL_MEMORY=67108864 \
+        -s FORCE_FILESYSTEM=1 \
+        --preload-file assets \
+        -DPLATFORM_WEB \
+        -Os \
+        --shell-file raylib/src/minshell.html
+
+    - name: Upload Web Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: snake_game_web
+        path: build_web/
