@@ -4,8 +4,8 @@ A feature-rich, modular Snake game **built entirely in C** using the Raylib fram
 
 
 
+
 ![Gameplay Demo 1](assets/demo.png)
-![Gameplay Demo 2](assets/demo2.png)
 
 ## 🌟 Unique Feature: Tactical Reverse
 Unlike traditional Snake games where reversing direction is a death sentence, **SNAKEYYY** introduces a strategic **Reverse Mechanic**.
@@ -25,6 +25,15 @@ Navigate the board carefully to collect helpful boosts while avoiding deadly tra
 ### Hazards
 *   **💣 Bombs**: Deadly explosives that spawn randomly in Survival Mode. Contact results in immediate game over!
 *   **🧱 Obstacles**: Static walls found in Maze Mode. Plan your path wisely.
+
+## 🍎 Food Varieties
+Not all food is created equal! Prioritize high-value targets to boost your score efficiently.
+
+*   **🥚 Red Egg**: 1 Point (Common)
+*   **🌟 Gold Egg**: 2 Points (Uncommon)
+*   **💜 Purple Egg**: 3 Points (Rare high-value target!)
+
+![Gameplay Demo 2](assets/demo2.png)
 
 ## 🚀 Game Modes
 *   **Classic Mode**: The traditional experience. Eat food, grow long, avoid walls.
