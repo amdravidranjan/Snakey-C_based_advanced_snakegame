@@ -456,7 +456,7 @@ void updateGameplay(float deltaTime) {
         bombTimer = 0.0f;
     }
     
-    if (powerupTimer >= 20.0f) {
+    if (powerupTimer >= 10.0f) {
         generateNewPowerup();
         powerupTimer = 0.0f;
     }
