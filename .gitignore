@@ -1,6 +1,7 @@
 # Build Artifacts
 build/
 *.exe
+*.zip
 *.o
 *.obj
 
@@ -18,3 +19,8 @@ README_REFACTOR.md
 # OS Files
 Thumbs.db
 Desktop.ini
+
+# Documentation & Logs
+RELEASE_LOG.md
+project (3).pdf
+RELEASE_LOG.md
