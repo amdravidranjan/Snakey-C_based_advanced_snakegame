@@ -27,7 +27,7 @@ jobs:
         cd raylib/src
         make PLATFORM=PLATFORM_WEB -B
         mkdir -p ../../lib
-        cp libraylib.a ../../lib/libraylib.a
+        cp libraylib.web.a ../../lib/libraylib.a
         cp raylib.h ../../include/raylib.h
 
     - name: Build Game (WebAssembly)
