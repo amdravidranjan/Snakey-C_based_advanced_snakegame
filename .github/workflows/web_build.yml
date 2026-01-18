@@ -45,7 +45,7 @@ jobs:
         --preload-file assets \
         -DPLATFORM_WEB \
         -Os \
-        --shell-file raylib/src/shell.html
+        --shell-file src/web_shell.html
 
     - name: Upload Web Artifact
       uses: actions/upload-artifact@v4
